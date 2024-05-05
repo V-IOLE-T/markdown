@@ -1,0 +1,183 @@
+\documentclass{ctexart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Template Title}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Subtitle} \vspace*{10\baselineskip}}
+		}
+\date{}
+\author{\textbf{Author} \\ 
+		Who? \\
+		Where? \\
+		When?}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{高等代数}
+
+%\begin{theorem}
+%    This is a theorem.
+%\end{theorem}
+
+%\begin{proposition}
+%    This is a proposition.
+%\end{proposition}
+
+%\begin{principle}
+%    This is a principle.
+%\end{principle}
+
+% Maybe I need to add one more part: Examples.
+% Set style and colour later.
+
+\subsection{线性变换}
+                 
+\begin{theorem}
+    设$V_1,V_2,\ldots ,V_s$是线性空间V的s个非平凡子空间，则V中至少有一个向量不属于$V_1,V_2,\ldots ,V_s$中任何一个。
+\end{theorem}
+\noindent 不属于其中一个是“并”的意思，因此数学归纳法时，不能单纯的用空间的和来表示不属于任何一个。\\
+证明对于不同的数$k_1,k_2$,向量$k_1\alpha +\beta ,k_2\alpha +\beta $不属于同一个$V_i,(1\leq i\leq s-1)$
+\begin{theorem}
+    如果$T_1,T_2,\ldots ,T_m$是非零线性空间V的m个两两不同的线性变换，则在V中必存在向量$\alpha $,使$T_1\alpha ,T_2\alpha ,\ldots,T_m\alpha $也两两不同。
+\end{theorem}
+\noindent 每两个线性变换均满足$\exists \alpha,T_i\alpha \neq T_j\alpha$,从而每个$V_{ij}\neq V$\\
+（在V空间中，$V_{ij}=\{x\mid x\in V,T_i \alpha=T_j \alpha\}$,即$V_{ij}$是V的子空间）\\
+  由以上可知，$V_{ij}$是V的非平凡子空间或V是零空间。
+因此至少有一个向量不属于$V_{ij}$中任何一个，即所有$T_i\alpha \neq T_j\alpha$,即$T_1\alpha ,T_2\alpha ,\ldots,T_m\alpha $两两不同。
+
+\begin{proposition}
+    在V中，$V_{ij}=\{x\mid x\in V,T_i \alpha=T_j \alpha\}$,即$V_{ij}$是V的子空间。\\
+    设T是数域F上n维线性空间V的一个线性变换，任取向量$\alpha\in V$,则有$T^{-1}\alpha\in V.$             
+\end{proposition}
+
+\subsection{分块矩阵}
+
+\noindent 公式一:$\begin{vmatrix}
+    A&B \\
+    0&D
+  \end{vmatrix}=(detA)(detD)$\\
+公式二：$\begin{vmatrix}
+    A&B \\
+    C&D
+  \end{vmatrix}=(detD)(det(A-BD^{-1}C))$\\
+公式三：设A,B,C,D是$n\times n$阶矩阵，若A,B,C,D其中之一是零矩阵，则
+$$\begin{vmatrix}
+    A&B \\
+    C&D
+  \end{vmatrix}=(detAD-BC)$$
+\begin{theorem}
+    A,B分别是$n \times m$和$m \times n$矩阵，则
+    $$\begin{vmatrix}
+        E_m&B \\
+        A&E_n
+      \end{vmatrix}=\left\lvert E_n-AB\right\rvert=\left\lvert E_m-BA\right\rvert  $$
+      若$\lambda \neq 0$,则$\left\lvert \lambda E_n-AB\right\rvert =\lambda^{n-m}\left\lvert \lambda E_m-BA\right\rvert $
+\end{theorem}
+以上表示，若AB为任意两个n阶方阵，则AB与BA有相同的特征多项式，特征值相同。\\
+AB=BA时，有以下性质：
+\begin{enumerate} 
+    %此为有序列表，无序列表为itemize
+        \item (A+B)的n次方可以直接二项式展开; 
+        \item 有部分题交换后可以直接凑出特殊矩阵;
+        \item \textbf{A，B有至少有一个相同的特征向量，但其他的特征向量不一定相同}，这个性质给同时对角化，同时上三角化提供了条件，另一方面给有限个矩阵可交换的命题进行归纳时提供了很好的条件. 
+    \end{enumerate}
+
+\subsection{矩阵乘积AB的性质}
+\begin{enumerate} 
+    \item 特征多项式：AB与BA的非零特征值的几何，代数重数都相等$\Leftrightarrow$ AB可对角化时，BA也可对角化
+    \item 特征值：若A和B都是正定矩阵，那么AB的特征值是正数。特别地，如果$B=A^T$，那么AB的特征值就是奇异值的平方
+    \item 交换性与多项式表示：AB=BA，A可对角化，则A，B可以同时对角化，而且B可以写成A的多形式形式。
+    \item 秩的性质：$r(AB)+n\geq r(A)+(B)$
+    \item 映射方面的解释：$r(AB)=dim Im(AB)=dim ImA\mid ImB$
+    \item 可对角化：AB可对角化$\Leftrightarrow$ BA，A可对角化，则A，B可以同时对角化，而且B可以写成A的多形式形式。\\
+    $\begin{pmatrix}
+        I&A \\
+        B&I
+      \end{pmatrix}$经过两种形式的变换以后可以化成 $\begin{pmatrix}
+        I-AB&O \\
+        O&I
+      \end{pmatrix}$以及$\begin{pmatrix}
+        I&O \\
+        O&I-BA
+      \end{pmatrix}$这两种形式；注意到这两个矩阵之间是相似的关系$\Rightarrow $AB和BA的特征值的代数重数和几何重数分别相等
+    \item $A\in P^{m \times n},B\in P^{n \times m}$,证明：$r(k(I_m-AB)^k)+n=r(k(I_n-BA)^k)+m,\forall k\in N^+$  \\
+    对于k=1而言，当然是很常见的结论，但是对于更大的k怎样考虑呢？首先看到矩阵的幂次很自然地想到了相似（因为引入相似的概念可以很好地解决矩阵的幂次问题）\\
+    也就是说 $\begin{pmatrix}
+        I-AB&O \\
+        O&I
+      \end{pmatrix}$以及$\begin{pmatrix}
+        I&O \\
+        O&I-BA
+      \end{pmatrix}$这两种形式相似，所以考虑一下Jordan标准型就出来了。
+\end{enumerate}
+
+
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% Reference and Cited Works
+% ------------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{References.bib}
+
+% ------------------------------------------------------------------------------
+
+\end{document}
