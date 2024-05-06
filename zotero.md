@@ -4,7 +4,7 @@
 [zotero学习](https://sspai.com/post/56724#!)
 [官方介绍](https://zotero-chinese.com/user-guide/take-notes.html)
 
-### 插件
+### 插件 
 
 #### [scholaread](https://www.scholaread.cn/list?ref=zhihu&utm_campaign=TR_VrKZGoFo&utm_content=&utm_medium=CPC&utm_source=CH_lzy6Abs7&utm_term=)
 
